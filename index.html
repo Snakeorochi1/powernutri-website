@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerNutri - Nutrición para Atletas</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* bg-gray-900 */
+        }
+        .hero-bg {
+            background-color: #111827; 
+        }
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .accent-color {
+            color: #34d399; /* emerald-400 */
+        }
+        .accent-bg {
+            background-color: #34d399; /* emerald-400 */
+        }
+        .accent-bg-hover:hover {
+            background-color: #10b981; /* emerald-500 */
+        }
+        /* Styles for Modal */
+        #article-modal {
+            transition: opacity 0.3s ease;
+        }
+        /* Custom scrollbar for modal content */
+        .modal-content::-webkit-scrollbar {
+            width: 8px;
+        }
+        .modal-content::-webkit-scrollbar-track {
+            background: #2d3748; /* gray-800 */
+        }
+        .modal-content::-webkit-scrollbar-thumb {
+            background: #34d399; /* emerald-400 */
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="text-gray-200">
+
+    <!-- Header / Navigation -->
+    <header class="bg-gray-900 bg-opacity-80 backdrop-blur-sm shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-3xl font-black text-white uppercase tracking-wider">
+                Power<span class="accent-color">Nutri</span>
+            </a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#servicios" class="text-gray-300 hover:accent-color transition duration-300">Servicios</a>
+                <a href="#calculadora" class="text-gray-300 hover:accent-color transition duration-300">Calculadora</a>
+                <a href="#articulos" class="text-gray-300 hover:accent-color transition duration-300">Artículos</a>
+                <a href="#contacto" class="accent-bg text-gray-900 font-bold px-5 py-2 rounded-md accent-bg-hover transition duration-300">Contacto</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-300 hover:accent-color focus:outline-none">
+                    <i class="fas fa-bars fa-lg"></i>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900">
+            <a href="#servicios" class="block py-3 px-4 text-sm text-gray-300 hover:accent-color">Servicios</a>
+            <a href="#calculadora" class="block py-3 px-4 text-sm text-gray-300 hover:accent-color">Calculadora</a>
+            <a href="#articulos" class="block py-3 px-4 text-sm text-gray-300 hover:accent-color">Artículos</a>
+            <a href="#contacto" class="block py-3 px-4 text-sm text-gray-300 hover:accent-color">Contacto</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="inicio" class="hero-bg text-white">
+            <div class="bg-black bg-opacity-20 min-h-[70vh] flex items-center">
+                <div class="container mx-auto px-6 text-center">
+                    <h1 class="text-5xl md:text-7xl font-black mb-4 uppercase text-shadow">Desata tu Máximo Rendimiento</h1>
+                    <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-gray-300 text-shadow">Nutrición de élite para atletas que no se conforman. Convierte tu esfuerzo en resultados.</p>
+                    <a href="#servicios" class="accent-bg text-gray-900 font-bold py-3 px-10 rounded-md text-lg accent-bg-hover transition duration-300 uppercase tracking-wider">Descubre Cómo</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="servicios" class="py-20 bg-gray-800">
+            <!-- Content remains the same -->
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-12 uppercase">Servicios de <span class="accent-color">Alto Impacto</span></h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-gray-900 p-8 rounded-lg border border-gray-700 text-center hover:border-emerald-400 transition-colors duration-300"><i class="fas fa-rocket fa-3x accent-color mb-6"></i><h3 class="text-2xl font-bold mb-3 uppercase">Rendimiento y Competencia</h3><p class="text-gray-400">Planes nutricionales estratégicos para llegar a tu pico de forma el día de la competición.</p></div>
+                    <div class="bg-gray-900 p-8 rounded-lg border border-gray-700 text-center hover:border-emerald-400 transition-colors duration-300"><i class="fas fa-cogs fa-3x accent-color mb-6"></i><h3 class="text-2xl font-bold mb-3 uppercase">Recuperación Acelerada</h3><p class="text-gray-400">Optimiza la reparación muscular, reduce la fatiga y vuelve a entrenar más fuerte y más rápido.</p></div>
+                    <div class="bg-gray-900 p-8 rounded-lg border border-gray-700 text-center hover:border-emerald-400 transition-colors duration-300"><i class="fas fa-balance-scale-right fa-3x accent-color mb-6"></i><h3 class="text-2xl font-bold mb-3 uppercase">Composición Corporal</h3><p class="text-gray-400">Gana masa muscular magra y reduce el porcentaje de grasa para un físico más eficiente y potente.</p></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Macro Calculator Section -->
+        <section id="calculadora" class="py-20 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-12 uppercase">Calculadora de <span class="accent-color">Macros</span></h2>
+                <div class="bg-gray-800 p-8 rounded-lg shadow-2xl max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Form Inputs -->
+                    <form id="macro-form" class="space-y-6">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-bold mb-2 text-gray-400">Género</label>
+                                <select id="gender" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-400 text-white"><option value="male">Masculino</option><option value="female">Femenino</option></select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold mb-2 text-gray-400">Edad</label>
+                                <input type="number" id="age" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-400 text-white" placeholder="años">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-bold mb-2 text-gray-400">Peso (kg)</label>
+                                <input type="number" id="weight" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-400 text-white" placeholder="ej: 70">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold mb-2 text-gray-400">Altura (cm)</label>
+                                <input type="number" id="height" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-400 text-white" placeholder="ej: 175">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2 text-gray-400">Nivel de Actividad</label>
+                            <select id="activity" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-400 text-white">
+                                <option value="1.2">Sedentario (poco o nada de ejercicio)</option>
+                                <option value="1.375">Ligero (1-3 días/semana)</option>
+                                <option value="1.55">Moderado (3-5 días/semana)</option>
+                                <option value="1.725">Activo (6-7 días/semana)</option>
+                                <option value="1.9">Muy Activo (trabajo físico + ejercicio)</option>
+                            </select>
+                        </div>
+                         <div>
+                            <label class="block text-sm font-bold mb-2 text-gray-400">Objetivo</label>
+                            <select id="goal" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-400 text-white">
+                                <option value="-500">Pérdida de Grasa (-500 kcal)</option>
+                                <option value="0">Mantenimiento</option>
+                                <option value="300">Ganancia Muscular (+300 kcal)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="w-full accent-bg text-gray-900 font-bold py-3 px-4 rounded-md accent-bg-hover transition duration-300 uppercase tracking-wider">Calcular</button>
+                    </form>
+
+                    <!-- Results Display -->
+                    <div id="results-container" class="bg-gray-900 p-6 rounded-lg flex flex-col justify-center items-center text-center">
+                        <p id="results-placeholder" class="text-gray-500">Tus resultados aparecerán aquí.</p>
+                        <div id="results-data" class="hidden w-full">
+                            <h3 class="text-2xl font-bold mb-4">Tus Calorías y Macros Diarios</h3>
+                            <div class="bg-emerald-400 text-gray-900 rounded-lg p-4 mb-4">
+                                <p class="text-lg font-bold">Calorías Totales</p>
+                                <p id="calories-result" class="text-4xl font-black"></p>
+                            </div>
+                            <div class="grid grid-cols-3 gap-4 text-center">
+                                <div>
+                                    <p class="font-bold text-emerald-400">Proteínas</p>
+                                    <p id="protein-result" class="text-2xl font-bold"></p>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-emerald-400">Carbs</p>
+                                    <p id="carbs-result" class="text-2xl font-bold"></p>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-emerald-400">Grasas</p>
+                                    <p id="fat-result" class="text-2xl font-bold"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Articles Section -->
+        <section id="articulos" class="py-20 bg-gray-800">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-12 uppercase">Publicaciones <span class="accent-color">Científicas</span></h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Article Card 1 -->
+                    <div class="article-card bg-gray-900 rounded-lg overflow-hidden flex flex-col transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer" data-article="1">
+                        <img src="https://placehold.co/400x250/1f2937/34d399?text=Glucógeno" alt="Glucógeno Muscular" class="w-full h-48 object-cover">
+                        <div class="p-6 flex-grow flex flex-col"><h3 class="font-bold text-xl mb-3 text-white">Periodización de Carbohidratos para la Optimización del Glucógeno Muscular</h3><p class="text-gray-400 text-sm mb-4 flex-grow">Análisis sobre la manipulación del consumo de CH para la supercompensación de las reservas de glucógeno.</p><span class="accent-color font-semibold mt-auto self-start">Leer publicación &rarr;</span></div>
+                    </div>
+                    <!-- Article Card 2 -->
+                    <div class="article-card bg-gray-900 rounded-lg overflow-hidden flex flex-col transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer" data-article="2">
+                        <img src="https://placehold.co/400x250/1f2937/34d399?text=Proteína" alt="Síntesis Proteica" class="w-full h-48 object-cover">
+                        <div class="p-6 flex-grow flex flex-col"><h3 class="font-bold text-xl mb-3 text-white">Síntesis de Proteína Muscular: Dosis, Frecuencia y Calidad</h3><p class="text-gray-400 text-sm mb-4 flex-grow">Revisión de la evidencia sobre la ingesta proteica, el umbral de leucina y la distribución de tomas para maximizar la hipertrofia.</p><span class="accent-color font-semibold mt-auto self-start">Leer publicación &rarr;</span></div>
+                    </div>
+                    <!-- Article Card 3 -->
+                    <div class="article-card bg-gray-900 rounded-lg overflow-hidden flex flex-col transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer" data-article="3">
+                        <img src="https://placehold.co/400x250/1f2937/34d399?text=Hidratación" alt="Hidratación y Rendimiento" class="w-full h-48 object-cover">
+                        <div class="p-6 flex-grow flex flex-col"><h3 class="font-bold text-xl mb-3 text-white">Impacto de la Euhidratación en la Homeostasis y Rendimiento</h3><p class="text-gray-400 text-sm mb-4 flex-grow">Estudio sobre cómo la hidratación óptima afecta la termorregulación, la función cardiovascular y la fatiga.</p><span class="accent-color font-semibold mt-auto self-start">Leer publicación &rarr;</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contacto" class="bg-gray-900 py-20">
+             <!-- Content remains the same -->
+            <div class="container mx-auto px-6 max-w-4xl text-center">
+                <h2 class="text-4xl font-bold mb-4 uppercase">¿Listo para <span class="accent-color">Elevar tu Juego</span>?</h2>
+                <p class="text-gray-400 mb-8 max-w-2xl mx-auto">No dejes tu nutrición al azar. Rellena el formulario y agenda una consulta estratégica para definir tus próximos objetivos.</p>
+                <div class="bg-gray-800 text-left p-8 rounded-lg shadow-2xl max-w-2xl mx-auto"><form><div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6"><div><label for="name" class="block text-sm font-bold mb-2 text-gray-400">Nombre</label><input type="text" id="name" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-400 text-white" placeholder="Tu Nombre"></div><div><label for="email" class="block text-sm font-bold mb-2 text-gray-400">Email</label><input type="email" id="email" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-400 text-white" placeholder="tu.email@ejemplo.com"></div></div><div class="mb-6"><label for="message" class="block text-sm font-bold mb-2 text-gray-400">Tu Principal Objetivo Deportivo</label><textarea id="message" rows="4" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-400 text-white" placeholder="Ej: Mejorar mi tiempo en maratón, ganar 5kg de músculo, etc."></textarea></div><button type="submit" class="w-full accent-bg text-gray-900 font-bold py-3 px-4 rounded-md accent-bg-hover transition duration-300 uppercase tracking-wider">Enviar Consulta</button></form></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black py-8">
+        <!-- Content remains the same -->
+        <div class="container mx-auto px-6 text-center text-gray-500"><div class="mb-4"><a href="#" class="mx-3 hover:accent-color"><i class="fab fa-instagram fa-lg"></i></a><a href="#" class="mx-3 hover:accent-color"><i class="fab fa-youtube fa-lg"></i></a><a href="#" class="mx-3 hover:accent-color"><i class="fab fa-twitter fa-lg"></i></a></div><p>&copy; 2024 PowerNutri. Impulsando Atletas. Todos los derechos reservados.</p></div>
+    </footer>
+
+    <!-- Article Modal -->
+    <div id="article-modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50 hidden opacity-0">
+        <div class="bg-gray-800 text-white max-w-2xl w-full rounded-lg shadow-2xl transform scale-95 transition-transform duration-300">
+            <div class="p-6 border-b border-gray-700 flex justify-between items-center">
+                <h3 id="modal-title" class="text-2xl font-bold"></h3>
+                <button id="modal-close" class="text-gray-400 hover:text-white">&times;</button>
+            </div>
+            <div id="modal-content" class="p-6 max-h-[60vh] overflow-y-auto modal-content">
+                <!-- Content will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- MOBILE MENU SCRIPT ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // --- MACRO CALCULATOR SCRIPT ---
+        const macroForm = document.getElementById('macro-form');
+        macroForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form values
+            const gender = document.getElementById('gender').value;
+            const age = parseInt(document.getElementById('age').value);
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value);
+            const activity = parseFloat(document.getElementById('activity').value);
+            const goal = parseInt(document.getElementById('goal').value);
+
+            // Basic validation
+            if (isNaN(age) || isNaN(weight) || isNaN(height) || age <= 0 || weight <= 0 || height <= 0) {
+                alert("Por favor, introduce valores válidos para edad, peso y altura.");
+                return;
+            }
+
+            // Calculate BMR (Basal Metabolic Rate) using Mifflin-St Jeor formula
+            let bmr;
+            if (gender === 'male') {
+                bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5;
+            } else {
+                bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161;
+            }
+            
+            // Calculate TDEE (Total Daily Energy Expenditure)
+            const tdee = bmr * activity;
+            
+            // Adjust calories based on goal
+            const finalCalories = tdee + goal;
+
+            // Calculate Macros (Protein: 2.2g/kg, Fat: 25% of calories, Carbs: remainder)
+            const proteinGrams = Math.round(weight * 2.2);
+            const fatCalories = finalCalories * 0.25;
+            const fatGrams = Math.round(fatCalories / 9);
+            const proteinCalories = proteinGrams * 4;
+            const carbsCalories = finalCalories - proteinCalories - fatCalories;
+            const carbsGrams = Math.round(carbsCalories / 4);
+
+            // Display results
+            document.getElementById('calories-result').textContent = Math.round(finalCalories);
+            document.getElementById('protein-result').textContent = `${proteinGrams}g`;
+            document.getElementById('carbs-result').textContent = `${carbsGrams}g`;
+            document.getElementById('fat-result').textContent = `${fatGrams}g`;
+
+            // Show results view
+            document.getElementById('results-placeholder').classList.add('hidden');
+            document.getElementById('results-data').classList.remove('hidden');
+        });
+        
+        // --- ARTICLE MODAL SCRIPT ---
+        const articleModal = document.getElementById('article-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalContent = document.getElementById('modal-content');
+        const modalCloseBtn = document.getElementById('modal-close');
+        
+        // Dummy content for articles
+        const articlesData = {
+            1: {
+                title: "Periodización de Carbohidratos para la Optimización del Glucógeno Muscular",
+                content: `<p class="mb-4">La periodización de carbohidratos es una estrategia nutricional avanzada que sincroniza el consumo de hidratos de carbono con las demandas del entrenamiento. El objetivo principal es maximizar las reservas de glucógeno muscular y hepático para mejorar el rendimiento en momentos clave y facilitar la adaptación al entrenamiento en fases de menor intensidad.</p>
+                          <h4 class="text-xl font-bold mb-2 accent-color">Fases Clave:</h4>
+                          <ul class="list-disc list-inside mb-4 space-y-2">
+                            <li><strong>Fase de Carga:</strong> Aumento del consumo de carbohidratos (8-12 g/kg de peso corporal) durante 24-48 horas antes de una competición para lograr la supercompensación de glucógeno.</li>
+                            <li><strong>Fase de Descarga:</strong> Reducción controlada del consumo de carbohidratos durante los días de baja intensidad o descanso para mejorar la sensibilidad a la insulina y la eficiencia en la oxidación de grasas.</li>
+                            <li><strong>Timing Peri-Entrenamiento:</strong> Consumo estratégico de carbohidratos de rápida absorción antes, durante y después del ejercicio para mantener la glucemia, ahorrar glucógeno y acelerar la resíntesis post-esfuerzo.</li>
+                          </ul>
+                          <p>La correcta implementación de esta estrategia puede marcar una diferencia significativa en deportes de resistencia y alta intensidad.</p>`
+            },
+            2: {
+                title: "Síntesis de Proteína Muscular: Dosis, Frecuencia y Calidad",
+                content: `<p class="mb-4">La maximización de la síntesis de proteína muscular (SPM) es fundamental para la hipertrofia y la recuperación. La evidencia científica actual sugiere que varios factores son cruciales más allá de la simple ingesta total diaria.</p>
+                          <h4 class="text-xl font-bold mb-2 accent-color">Factores Determinantes:</h4>
+                          <ul class="list-disc list-inside mb-4 space-y-2">
+                            <li><strong>Dosis por Toma:</strong> Se ha observado que una dosis de 20-40 gramos de proteína de alta calidad es suficiente para estimular la SPM al máximo. Cantidades mayores no parecen ofrecer beneficios adicionales en una sola toma.</li>
+                            <li><strong>Umbral de Leucina:</strong> La leucina es el aminoácido clave que actúa como señal para iniciar la SPM. Se estima que se necesitan unos 3 gramos de leucina por toma para un efecto óptimo.</li>
+                            <li><strong>Frecuencia:</strong> Distribuir la ingesta total de proteína en 4-5 tomas a lo largo del día parece ser más efectivo que concentrarla en 2-3 comidas grandes, manteniendo la SPM elevada de forma más constante.</li>
+                            <li><strong>Calidad:</strong> Las fuentes de proteína con un perfil completo de aminoácidos esenciales (como suero de leche, huevos, carne) son superiores para estimular la SPM.</li>
+                          </ul>`
+            },
+            3: {
+                title: "Impacto de la Euhidratación en la Homeostasis y Rendimiento",
+                content: `<p class="mb-4">La euhidratación, o el estado de balance hídrico normal, es uno de los factores más críticos y a menudo subestimados en el rendimiento deportivo. Una deshidratación tan leve como el 2% del peso corporal puede afectar negativamente las capacidades físicas y cognitivas.</p>
+                          <h4 class="text-xl font-bold mb-2 accent-color">Mecanismos Afectados por la Deshidratación:</h4>
+                          <ul class="list-disc list-inside mb-4 space-y-2">
+                            <li><strong>Función Cardiovascular:</strong> La reducción del volumen plasmático aumenta la frecuencia cardíaca y disminuye el volumen sistólico, lo que obliga al corazón a trabajar más para mantener el gasto cardíaco.</li>
+                            <li><strong>Termorregulación:</strong> Disminuye la tasa de sudoración y el flujo sanguíneo a la piel, lo que dificulta la disipación del calor y aumenta el riesgo de golpe de calor.</li>
+                            <li><strong>Metabolismo Muscular:</strong> Una mayor deshidratación se asocia con un uso acelerado del glucógeno muscular, llevando a una fatiga prematura.</li>
+                            <li><strong>Función Cognitiva:</strong> Afecta la concentración, la toma de decisiones y la percepción del esfuerzo, haciendo que el ejercicio se sienta más duro de lo que es.</li>
+                          </ul>
+                          <p>Una estrategia de hidratación personalizada antes, durante y después del ejercicio es fundamental para cualquier atleta serio.</p>`
+            }
+        };
+        
+        document.querySelectorAll('.article-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const articleId = this.dataset.article;
+                const data = articlesData[articleId];
+                
+                if (data) {
+                    modalTitle.textContent = data.title;
+                    modalContent.innerHTML = data.content;
+                    articleModal.classList.remove('hidden');
+                    setTimeout(() => {
+                        articleModal.classList.remove('opacity-0');
+                        articleModal.querySelector('.transform').classList.remove('scale-95');
+                    }, 10);
+                }
+            });
+        });
+
+        function closeModal() {
+            articleModal.classList.add('opacity-0');
+            articleModal.querySelector('.transform').classList.add('scale-95');
+            setTimeout(() => {
+                articleModal.classList.add('hidden');
+            }, 300);
+        }
+
+        modalCloseBtn.addEventListener('click', closeModal);
+        articleModal.addEventListener('click', function(e) {
+            if (e.target === articleModal) {
+                closeModal();
+            }
+        });
+
+    </script>
+</body>
+</html>
