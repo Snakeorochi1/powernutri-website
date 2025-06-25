@@ -22,6 +22,11 @@
         html {
             scroll-behavior: smooth; /* Desplazamiento suave al hacer clic en los enlaces del menú */
         }
+        /* ===== CORRECCIÓN PARA EL MENÚ FIJO ===== */
+        /* Esta regla añade un margen superior a todas las secciones para que no queden ocultas detrás del menú al navegar. */
+        section[id] {
+            scroll-margin-top: 80px; 
+        }
         .accent-color {
             color: #f59e0b; /* Color de acento principal (naranja/ámbar) */
         }
@@ -41,6 +46,10 @@
             background-size: cover; /* Asegura que la imagen cubra todo el espacio */
             background-position: center; /* Centra la imagen */
             background-attachment: fixed; /* Efecto parallax (la imagen se queda fija al hacer scroll) */
+        }
+        /* Estilos para el resultado de la calculadora de IMC */
+        .imc-result-card {
+            transition: all 0.3s ease-in-out;
         }
     </style>
 </head>
@@ -62,6 +71,7 @@
                 <a href="#inicio" class="text-gray-600 hover:accent-color transition duration-300">Inicio</a>
                 <a href="#metodologia" class="text-gray-600 hover:accent-color transition duration-300">Cómo Funciona</a>
                 <a href="#servicios" class="text-gray-600 hover:accent-color transition duration-300">Servicios</a>
+                <a href="#calculadora-imc" class="text-gray-600 hover:accent-color transition duration-300">Calculadora</a>
                 <a href="#blog" class="text-gray-600 hover:accent-color transition duration-300">Blog</a>
                 <a href="#contacto" class="accent-bg text-white px-5 py-2 rounded-md accent-bg-hover transition duration-300">Contacto</a>
             </div>
@@ -79,6 +89,7 @@
             <a href="#inicio" class="block py-3 px-4 text-sm text-gray-600 hover:bg-gray-50">Inicio</a>
             <a href="#metodologia" class="block py-3 px-4 text-sm text-gray-600 hover:bg-gray-50">Cómo Funciona</a>
             <a href="#servicios" class="block py-3 px-4 text-sm text-gray-600 hover:bg-gray-50">Servicios</a>
+            <a href="#calculadora-imc" class="block py-3 px-4 text-sm text-gray-600 hover:bg-gray-50">Calculadora</a>
             <a href="#blog" class="block py-3 px-4 text-sm text-gray-600 hover:bg-gray-50">Blog</a>
             <a href="#contacto" class="block py-3 px-4 text-sm text-gray-600 hover:bg-gray-50">Contacto</a>
         </div>
@@ -89,18 +100,10 @@
         <!-- ============== SECCIÓN 2: PORTADA (HERO SECTION) ============== -->
         <!-- =================================================================== -->
         <section id="inicio" class="hero-section text-white relative">
-            <!-- Capa oscura para mejorar la legibilidad del texto. Puedes ajustar la opacidad cambiando el valor en bg-opacity-50 (ej: bg-opacity-60) -->
             <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-
-            <!-- Contenido de la portada -->
             <div class="container mx-auto px-6 py-32 md:py-48 relative z-10 text-center">
-                <!-- TÍTULO PRINCIPAL DE LA PORTADA -->
                 <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">Tu nutricionista deportivo en <span class="accent-color">Barquisimeto</span></h1>
-                
-                <!-- SUBTÍTULO DE LA PORTADA -->
                 <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">Comer para rendir no tiene por qué ser complicado. Descubre el poder de la nutrición basada en ciencia.</p>
-                
-                <!-- BOTÓN DE LLAMADA A LA ACCIÓN -->
                 <a href="#servicios" class="accent-bg text-white font-bold py-3 px-8 rounded-md text-lg accent-bg-hover transition duration-300">¡Quiero empezar!</a>
             </div>
         </section>
@@ -111,102 +114,66 @@
         <section id="metodologia" class="py-20 bg-gray-50">
             <div class="container mx-auto px-6">
                 <div class="text-center max-w-3xl mx-auto">
-                    <!-- TÍTULO DE LA SECCIÓN -->
                     <h2 class="text-3xl font-bold mb-4">Un Plan Creado Única y Exclusivamente Para Ti</h2>
-                    <!-- PÁRRAFO INTRODUCTORIO -->
                     <p class="text-gray-600 mb-12">Mi filosofía se basa en entenderte para poder ayudarte. No recibirás una dieta genérica, sino un sistema de alimentación adaptado a tu realidad, tus gustos y tus objetivos.</p>
                 </div>
-
-                <!-- PILARES DE LA METODOLOGÍA (Iconos y texto) -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20 text-center">
-                    <!-- Pilar 1 -->
                     <div class="p-6">
                         <i class="fas fa-user-check fa-3x accent-color mb-4"></i>
                         <h3 class="text-xl font-bold mb-2">100% Personalizado</h3>
                         <p class="text-gray-600">Tu plan se basa en tus datos, horarios, preferencias y metas deportivas.</p>
                     </div>
-                    <!-- Pilar 2 -->
                     <div class="p-6">
                         <i class="fas fa-flask fa-3x accent-color mb-4"></i>
                         <h3 class="text-xl font-bold mb-2">Basado en Ciencia</h3>
                         <p class="text-gray-600">Solo aplico estrategias con evidencia científica sólida que garantizan resultados.</p>
                     </div>
-                    <!-- Pilar 3 -->
                     <div class="p-6">
                         <i class="fas fa-book-open fa-3x accent-color mb-4"></i>
                         <h3 class="text-xl font-bold mb-2">Aprende a Comer</h3>
                         <p class="text-gray-600">Te doy las herramientas para que entiendas tu nutrición y tomes decisiones informadas.</p>
                     </div>
-                    <!-- Pilar 4 -->
                     <div class="p-6">
                         <i class="fas fa-headset fa-3x accent-color mb-4"></i>
                         <h3 class="text-xl font-bold mb-2">Soporte Continuo</h3>
                         <p class="text-gray-600">Estoy para resolver tus dudas y ajustar el plan siempre que sea necesario.</p>
                     </div>
                 </div>
-
-                <!-- PROCESO PASO A PASO -->
                 <div class="max-w-4xl mx-auto">
-                    <h3 class="text-3xl font-bold text-center mb-12">¿Cómo empezamos a trabajar?</h3>
+                    <h3 class="text-3xl font-bold text-center mb-12">¿Cómo Empezamos a Trabajar?</h3>
+                    <p class="text-center text-gray-600 -mt-8 mb-12 max-w-2xl mx-auto">Nuestro método está diseñado para conocerte a fondo y crear una estrategia nutricional que se adapte perfectamente a ti y a tus metas.</p>
                     <div class="relative">
-                        <!-- Línea de tiempo visual (no tocar) -->
                         <div class="absolute left-1/2 transform -translate-x-1/2 h-full border-l-2 border-dashed border-gray-300 hidden md:block"></div>
-                        
-                        <!-- Puedes modificar el texto de cada paso -->
-                        <!-- Paso 1 -->
                         <div class="mb-12 flex flex-col md:flex-row items-center">
                             <div class="md:w-1/2 md:pr-8 text-center md:text-right">
-                                <h4 class="text-2xl font-bold accent-color mb-2">Paso 1: Cuestionario Inicial</h4>
-                                <p class="text-gray-600">Rellenarás un formulario detallado sobre tus objetivos, historial, horarios, gustos y aversiones.</p>
+                                <h4 class="text-2xl font-bold accent-color mb-2">Paso 1: Primera Consulta y Evaluación Integral</h4>
+                                <p class="text-gray-600">En nuestro primer encuentro, nos dedicaremos a conocerte. Realizaremos tu historia médica y dietética completa para entender tus antecedentes, hábitos, horarios, estilo de vida y dónde realizas tus comidas.</p>
                             </div>
                             <div class="hidden md:block md:w-auto mx-8 bg-amber-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold z-10">1</div>
                         </div>
-                        <!-- Paso 2 -->
                          <div class="mb-12 flex flex-col md:flex-row-reverse items-center">
                             <div class="md:w-1/2 md:pl-8 text-center md:text-left">
-                                <h4 class="text-2xl font-bold accent-color mb-2">Paso 2: Videollamada de Evaluación</h4>
-                                <p class="text-gray-600">Tendremos una sesión para conocernos, revisar tu cuestionario y definir la estrategia a seguir.</p>
+                                <h4 class="text-2xl font-bold accent-color mb-2">Paso 2: Evaluación Corporal y Definición de Objetivos</h4>
+                                <p class="text-gray-600">Realizaremos una evaluación antropométrica para determinar tu peso, porcentaje de grasa y masa muscular. Con estos datos, definiremos juntos la dirección a seguir: perder grasa, aumentar músculo o mejorar tu rendimiento.</p>
                             </div>
                              <div class="hidden md:block md:w-auto mx-8 bg-amber-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold z-10">2</div>
                         </div>
-                         <!-- Paso 3 -->
                         <div class="mb-12 flex flex-col md:flex-row items-center">
                             <div class="md:w-1/2 md:pr-8 text-center md:text-right">
-                                <h4 class="text-2xl font-bold accent-color mb-2">Paso 3: Entrega del Plan</h4>
-                                <p class="text-gray-600">En un plazo de 3-5 días hábiles, recibirás tu plan de nutrición 100% personalizado y detallado.</p>
+                                <h4 class="text-2xl font-bold accent-color mb-2">Paso 3: Entrega de tu Plan Personalizado</h4>
+                                <p class="text-gray-600">En un plazo de 3 a 5 días hábiles, te entregaré tu plan de nutrición 100% personalizado. No es un plan genérico; estará diseñado exclusivamente para ti, basado en toda la información recopilada.</p>
                             </div>
                             <div class="hidden md:block md:w-auto mx-8 bg-amber-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold z-10">3</div>
                         </div>
-                         <!-- Paso 4 -->
                         <div class="flex flex-col md:flex-row-reverse items-center">
                             <div class="md:w-1/2 md:pl-8 text-center md:text-left">
-                                <h4 class="text-2xl font-bold accent-color mb-2">Paso 4: Revisiones y Ajustes</h4>
-                                <p class="text-gray-600">Según tu plan, tendremos revisiones periódicas para evaluar tu progreso y hacer los ajustes necesarios.</p>
+                                <h4 class="text-2xl font-bold accent-color mb-2">Paso 4: Consultas de Seguimiento y Ajustes</h4>
+                                <p class="text-gray-600">Agendaremos consultas de seguimiento periódicas para evaluar tu progreso, resolver dudas y realizar los ajustes necesarios. Este acompañamiento continuo es clave para asegurar que alcances tus metas.</p>
                             </div>
                             <div class="hidden md:block md:w-auto mx-8 bg-amber-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold z-10">4</div>
                         </div>
                     </div>
                 </div>
-
-                <!-- SECCIÓN "¿ES PARA TI?" (OBJETIVOS) -->
-                <div class="mt-20 text-center">
-                     <h3 class="text-3xl font-bold mb-4">¿Este servicio es para ti?</h3>
-                     <p class="text-gray-600 mb-8 max-w-2xl mx-auto">Este asesoramiento es ideal si buscas:</p>
-                     <!-- Puedes cambiar o añadir los objetivos aquí -->
-                     <div class="flex flex-wrap justify-center gap-4">
-                         <span class="bg-amber-100 text-amber-800 font-semibold py-2 px-4 rounded-full">Mejorar tu rendimiento</span>
-                         <span class="bg-amber-100 text-amber-800 font-semibold py-2 px-4 rounded-full">Aumentar masa muscular</span>
-                         <span class="bg-amber-100 text-amber-800 font-semibold py-2 px-4 rounded-full">Perder grasa corporal</span>
-                         <span class="bg-amber-100 text-amber-800 font-semibold py-2 px-4 rounded-full">Aprender a comer mejor</span>
-                         <span class="bg-amber-100 text-amber-800 font-semibold py-2 px-4 rounded-full">Preparar una competición</span>
-                     </div>
-                </div>
-
-                <!-- Botón de llamada a la acción -->
-                <div class="text-center mt-20">
-                    <a href="#servicios" class="accent-bg text-white font-bold py-3 px-8 rounded-md text-lg accent-bg-hover transition duration-300">Ver Planes y Precios</a>
-                </div>
-
             </div>
         </section>
 
@@ -218,13 +185,9 @@
                 <h2 class="text-3xl font-bold text-center mb-2">Servicios de Nutrición</h2>
                 <p class="text-gray-600 text-center mb-12 max-w-3xl mx-auto">Mi enfoque es 100% personalizado. Analizo tus objetivos, estilo de vida y estado actual para crear un plan de alimentación que sea efectivo, sostenible y que disfrutes. Aquí te presento las opciones para que empecemos a trabajar juntos.</p>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    
-                    <!-- TARJETA DE SERVICIO 1: Consulta Única -->
                     <div class="bg-gray-50 border border-gray-200 p-8 rounded-lg text-center flex flex-col">
                         <h3 class="text-2xl font-bold mb-2">Consulta Única</h3>
-                        <!-- PRECIO -->
                         <p class="text-4xl font-extrabold my-4 accent-color">€75</p>
-                        <!-- CARACTERÍSTICAS DEL PLAN (modifica los textos de cada <li>) -->
                         <ul class="text-gray-600 space-y-3 mb-8 text-left flex-grow">
                             <li><i class="fas fa-check-circle accent-color mr-2"></i><span class="font-semibold">Análisis inicial completo</span> de tus hábitos y metas.</li>
                             <li><i class="fas fa-check-circle accent-color mr-2"></i><span class="font-semibold">Evaluación</span> de tu dieta actual e historial clínico.</li>
@@ -234,14 +197,10 @@
                         </ul>
                         <a href="#contacto" class="mt-auto bg-gray-800 text-white font-bold py-2 px-6 rounded-md hover:bg-black transition duration-300">Solicitar Información</a>
                     </div>
-                    
-                    <!-- TARJETA DE SERVICIO 2: Pack Mensual (Destacado) -->
                     <div class="bg-gray-800 text-white p-8 rounded-lg text-center flex flex-col shadow-2xl transform md:scale-105">
                         <p class="accent-bg text-gray-900 font-bold uppercase tracking-widest text-sm py-1 px-3 rounded-full self-center mb-4">Más Popular</p>
                         <h3 class="text-2xl font-bold mb-2">Pack Mensual</h3>
-                        <!-- PRECIO -->
                         <p class="text-4xl font-extrabold my-4 accent-color">€150</p>
-                        <!-- CARACTERÍSTICAS DEL PLAN -->
                         <ul class="space-y-3 mb-8 text-left flex-grow">
                              <li><i class="fas fa-check-circle accent-color mr-2"></i><span class="font-semibold">Todo lo de la Consulta Única</span> incluido.</li>
                             <li><i class="fas fa-check-circle accent-color mr-2"></i><span class="font-semibold">Plan nutricional 100% personalizado</span> y adaptado.</li>
@@ -251,13 +210,9 @@
                         </ul>
                         <a href="#contacto" class="mt-auto accent-bg text-white font-bold py-2 px-6 rounded-md accent-bg-hover transition duration-300">Empezar Ahora</a>
                     </div>
-
-                    <!-- TARJETA DE SERVICIO 3: Pack Trimestral -->
                     <div class="bg-gray-50 border border-gray-200 p-8 rounded-lg text-center flex flex-col">
                         <h3 class="text-2xl font-bold mb-2">Pack Trimestral</h3>
-                        <!-- PRECIO -->
                         <p class="text-4xl font-extrabold my-4 accent-color">€400</p>
-                        <!-- CARACTERÍSTICAS DEL PLAN -->
                         <ul class="text-gray-600 space-y-3 mb-8 text-left flex-grow">
                             <li><i class="fas fa-check-circle accent-color mr-2"></i><span class="font-semibold">Todo lo incluido en el Pack Mensual</span>.</li>
                             <li><i class="fas fa-check-circle accent-color mr-2"></i><span class="font-semibold">Planificación a largo plazo</span> para objetivos o competiciones.</li>
@@ -272,49 +227,67 @@
         </section>
 
         <!-- =================================================================== -->
+        <!-- ============== SECCIÓN NUEVA: CALCULADORA DE IMC ================== -->
+        <!-- =================================================================== -->
+        <section id="calculadora-imc" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Calculadora de IMC</h2>
+                <div class="bg-white p-8 rounded-lg shadow-lg max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <!-- Formulario de la calculadora -->
+                    <form id="imc-form" class="space-y-6">
+                        <div>
+                            <label for="weight" class="block text-sm font-bold mb-2 text-gray-700">Peso (en kg)</label>
+                            <input type="number" id="weight" step="0.1" class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Ej: 70.5">
+                        </div>
+                        <div>
+                            <label for="height" class="block text-sm font-bold mb-2 text-gray-700">Altura (en cm)</label>
+                            <input type="number" id="height" class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Ej: 175">
+                        </div>
+                        <button type="submit" class="w-full accent-bg text-white font-bold py-3 px-4 rounded-md accent-bg-hover transition duration-300">
+                            Calcular IMC
+                        </button>
+                    </form>
+
+                    <!-- Área de resultados -->
+                    <div id="imc-result-container" class="text-center p-6 rounded-lg bg-gray-100 imc-result-card hidden">
+                        <p class="font-bold text-lg">Tu Índice de Masa Corporal es:</p>
+                        <p id="imc-value" class="text-5xl font-extrabold accent-color my-2"></p>
+                        <p id="imc-category" class="font-bold text-xl mb-4"></p>
+                        <div class="text-left bg-amber-100 border-l-4 border-amber-500 text-amber-700 p-4 rounded-r-lg">
+                            <p class="font-bold">¡Importante!</p>
+                            <p class="text-sm">El IMC no distingue entre masa muscular y grasa. Por sí solo, no es un criterio determinante. Para un diagnóstico certero y un plan adecuado, la valoración de un especialista es clave.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- =================================================================== -->
         <!-- ============== SECCIÓN 5: TESTIMONIOS ============================ -->
         <!-- =================================================================== -->
         <section id="testimonios" class="py-20 bg-gray-50">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl font-bold text-center mb-12">Experiencias de pacientes</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    
-                    <!-- TESTIMONIO 1 -->
                     <div class="bg-white p-8 rounded-lg shadow-md">
-                        <!-- TEXTO DEL TESTIMONIO -->
                         <p class="text-gray-600 mb-6 italic">"Cambió mi forma de ver la comida. Ahora sé qué comer para rendir al máximo sin sentirme pesado. ¡Un antes y un después!"</p>
                         <div class="flex items-center">
-                            <!-- IMAGEN DEL PACIENTE -->
                             <img src="https://placehold.co/100x100/e0e0e0/333333?text=J" alt="Foto de Javier M." class="w-12 h-12 rounded-full mr-4">
-                            <div>
-                                <!-- NOMBRE Y DESCRIPCIÓN DEL PACIENTE -->
-                                <p class="font-bold">Javier M.</p>
-                                <p class="text-sm text-gray-500">Paciente Satisfecho</p>
-                            </div>
+                            <div><p class="font-bold">Javier M.</p><p class="text-sm text-gray-500">Paciente Satisfecho</p></div>
                         </div>
                     </div>
-
-                    <!-- TESTIMONIO 2 -->
                     <div class="bg-white p-8 rounded-lg shadow-md">
                         <p class="text-gray-600 mb-6 italic">"Lograr mis metas parecía imposible. Con la planificación nutricional, no solo lo conseguí, sino que superé mis expectativas."</p>
                         <div class="flex items-center">
                             <img src="https://placehold.co/100x100/e0e0e0/333333?text=L" alt="Foto de Laura G." class="w-12 h-12 rounded-full mr-4">
-                            <div>
-                                <p class="font-bold">Laura G.</p>
-                                <p class="text-sm text-gray-500">Paciente Satisfecha</p>
-                            </div>
+                            <div><p class="font-bold">Laura G.</p><p class="text-sm text-gray-500">Paciente Satisfecha</p></div>
                         </div>
                     </div>
-
-                    <!-- TESTIMONIO 3 -->
                     <div class="bg-white p-8 rounded-lg shadow-md">
                         <p class="text-gray-600 mb-6 italic">"El soporte constante es lo mejor. Cualquier duda que tengo sobre qué comer antes de un entreno, me la resuelve al momento."</p>
                         <div class="flex items-center">
                             <img src="https://placehold.co/100x100/e0e0e0/333333?text=C" alt="Foto de Carlos S." class="w-12 h-12 rounded-full mr-4">
-                            <div>
-                                <p class="font-bold">Carlos S.</p>
-                                <p class="text-sm text-gray-500">Paciente Satisfecho</p>
-                            </div>
+                            <div><p class="font-bold">Carlos S.</p><p class="text-sm text-gray-500">Paciente Satisfecho</p></div>
                         </div>
                     </div>
                 </div>
@@ -328,62 +301,48 @@
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl font-bold text-center mb-12">Últimas entradas del Blog</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                     
-                    <!-- NOTA: Las imágenes del blog han sido actualizadas con URLs que funcionan. -->
-
-                    <!-- TARJETA DE ARTÍCULO 1 -->
                     <a href="#" target="_blank" class="block bg-gray-50 rounded-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow duration-300">
-                        <img src="https://images.unsplash.com/photo-1517621419323-94b29a28aa2a?q=80&w=1887&auto=format&fit=crop" alt="Bowl de avena con frutas, representando los carbohidratos" class="w-full h-48 object-cover">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1780&auto=format&fit=crop" alt="Bowl de avena con frutas, representando los carbohidratos" class="w-full h-48 object-cover">
                         <div class="p-6">
                             <h3 class="font-bold text-xl mb-2 text-gray-800">Timing de Carbohidratos</h3>
                             <p class="text-gray-600 text-sm mb-4">Aprende cuándo y qué tipo de carbohidratos comer para maximizar tu energía durante el ejercicio.</p>
                             <span class="accent-color font-semibold mt-2 inline-block">Leer más &rarr;</span>
                         </div>
                     </a>
-
-                    <!-- TARJETA DE ARTÍCULO 2 -->
                     <a href="#" target="_blank" class="block bg-gray-50 rounded-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow duration-300">
-                        <img src="https://images.unsplash.com/photo-1560717789-0ac7c58ac90a?q=80&w=1770&auto=format&fit=crop" alt="Plato con pollo a la plancha y brócoli, representando la proteína" class="w-full h-48 object-cover">
+                        <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?q=80&w=1783&auto=format&fit=crop" alt="Tostada con aguacate y huevo, representando proteína" class="w-full h-48 object-cover">
                          <div class="p-6">
                             <h3 class="font-bold text-xl mb-2 text-gray-800">Proteína: ¿Cuánta Necesitas?</h3>
                             <p class="text-gray-600 text-sm mb-4">Desmontamos mitos. Descubre la cantidad óptima de proteína para tus objetivos de recuperación.</p>
                             <span class="accent-color font-semibold mt-2 inline-block">Leer más &rarr;</span>
                          </div>
                     </a>
-                    
-                    <!-- TARJETA DE ARTÍCULO 3 -->
                     <a href="#" target="_blank" class="block bg-gray-50 rounded-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow duration-300">
-                        <img src="https://images.unsplash.com/photo-1613109307440-41a455ac26e0?q=80&w=1887&auto=format&fit=crop" alt="Deportista bebiendo agua, representando la hidratación" class="w-full h-48 object-cover">
+                        <img src="https://images.unsplash.com/photo-1541336032488-866a42791515?q=80&w=1770&auto=format&fit=crop" alt="Deportista bebiendo agua, representando la hidratación" class="w-full h-48 object-cover">
                          <div class="p-6">
                             <h3 class="font-bold text-xl mb-2 text-gray-800">La Clave de la Hidratación</h3>
                             <p class="text-gray-600 text-sm mb-4">Una pequeña deshidratación puede hundir tu rendimiento. Te enseñamos a beber de forma inteligente.</p>
                              <span class="accent-color font-semibold mt-2 inline-block">Leer más &rarr;</span>
                          </div>
                     </a>
-
-                    <!-- TARJETA DE ARTÍCULO 4 -->
                     <a href="#" target="_blank" class="block bg-gray-50 rounded-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow duration-300">
-                        <img src="https://images.unsplash.com/photo-1581092918056-0c4c37e57464?q=80&w=1740&auto=format&fit=crop" alt="Variedad de botes de suplementos deportivos" class="w-full h-48 object-cover">
+                        <img src="https://images.unsplash.com/photo-1627483424112-251c5b883011?q=80&w=1740&auto=format&fit=crop" alt="Variedad de botes de suplementos deportivos en un gimnasio" class="w-full h-48 object-cover">
                          <div class="p-6">
                             <h3 class="font-bold text-xl mb-2 text-gray-800">Suplementos con Evidencia</h3>
                             <p class="text-gray-600 text-sm mb-4">No gastes tu dinero en vano. Conoce los suplementos que realmente funcionan según la ciencia.</p>
                              <span class="accent-color font-semibold mt-2 inline-block">Leer más &rarr;</span>
                          </div>
                     </a>
-
-                    <!-- TARJETA DE ARTÍCULO 5 -->
                     <a href="#" target="_blank" class="block bg-gray-50 rounded-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow duration-300">
-                        <img src="https://images.unsplash.com/photo-1540420773420-2356b2de694d?q=80&w=1974&auto=format&fit=crop" alt="Tostada con aguacate y huevo, representando una comida de recuperación" class="w-full h-48 object-cover">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=1981&auto=format&fit=crop" alt="Pizza saludable, representando una comida de recuperación" class="w-full h-48 object-cover">
                          <div class="p-6">
                             <h3 class="font-bold text-xl mb-2 text-gray-800">Comer para Recuperar Mejor</h3>
                             <p class="text-gray-600 text-sm mb-4">La nutrición post-entreno es vital. Descubre qué comer para acelerar la reparación muscular.</p>
                              <span class="accent-color font-semibold mt-2 inline-block">Leer más &rarr;</span>
                          </div>
                     </a>
-
-                    <!-- TARJETA DE ARTÍCULO 6 -->
                     <a href="#" target="_blank" class="block bg-gray-50 rounded-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow duration-300">
-                        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?q=80&w=1740&auto=format&fit=crop" alt="Mesa llena de alimentos frescos y saludables, representando la verdad sobre los mitos" class="w-full h-48 object-cover">
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1740&auto=format&fit=crop" alt="Bowl de ensalada colorida representando la verdad sobre los mitos" class="w-full h-48 object-cover">
                          <div class="p-6">
                             <h3 class="font-bold text-xl mb-2 text-gray-800">Mitos de Nutrición Deportiva</h3>
                             <p class="text-gray-600 text-sm mb-4">Aclaramos las confusiones más comunes para que puedas enfocarte en lo que de verdad importa.</p>
@@ -402,21 +361,26 @@
                 <h2 class="text-4xl font-bold mb-4">Da el primer paso hoy</h2>
                 <p class="text-gray-300 mb-8 max-w-2xl mx-auto">¿Tienes dudas o estás listo para empezar? Envíame un mensaje y te responderé lo antes posible.</p>
                 
-                <!-- FORMULARIO DE CONTACTO -->
-                <!-- Para que este formulario funcione, necesita conectarse a un servicio de backend como Formspree, Netlify Forms o uno propio. -->
+                <!-- ========================================================== -->
+                <!-- ====== FORMULARIO DE CONTACTO FUNCIONAL CON FORMSPREE ====== -->
+                <!-- ========================================================== -->
                 <div class="bg-white text-gray-800 text-left p-8 rounded-lg shadow-2xl max-w-2xl mx-auto">
-                    <form>
+                    <!-- PASO 1: Ve a https://formspree.io/ y crea una cuenta gratuita. -->
+                    <!-- PASO 2: Crea un nuevo formulario y copia la URL que te dan. -->
+                    <!-- PASO 3: Pega esa URL en el atributo `action` de abajo, reemplazando la URL de ejemplo. -->
+                    <form action="https://formspree.io/f/mjkrppgj" method="POST">
                         <div class="mb-5">
                             <label for="name" class="block text-sm font-bold mb-2 text-gray-700">Nombre</label>
-                            <input type="text" id="name" class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Tu Nombre">
+                            <!-- El atributo `name` es importante para que Formspree sepa cómo llamar a este campo en el email. -->
+                            <input type="text" id="name" name="nombre" class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Tu Nombre" required>
                         </div>
                          <div class="mb-5">
                             <label for="email" class="block text-sm font-bold mb-2 text-gray-700">Email</label>
-                            <input type="email" id="email" class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="tu.email@ejemplo.com">
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="tu.email@ejemplo.com" required>
                         </div>
                         <div class="mb-5">
                             <label for="service" class="block text-sm font-bold mb-2 text-gray-700">¿Qué servicio te interesa?</label>
-                            <select id="service" class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            <select id="service" name="servicio_interes" class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500">
                                 <option>Tengo una duda</option>
                                 <option>Consulta Única</option>
                                 <option>Pack Mensual</option>
@@ -425,7 +389,7 @@
                         </div>
                         <div class="mb-6">
                             <label for="message" class="block text-sm font-bold mb-2 text-gray-700">Mensaje</label>
-                            <textarea id="message" rows="4" class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Cuéntame sobre tus objetivos..."></textarea>
+                            <textarea id="message" name="mensaje" rows="4" class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Cuéntame sobre tus objetivos..." required></textarea>
                         </div>
                         <button type="submit" class="w-full accent-bg text-white font-bold py-3 px-4 rounded-md accent-bg-hover transition duration-300">
                             Enviar Mensaje
@@ -441,22 +405,19 @@
     <!-- =================================================================== -->
     <footer class="bg-white py-8">
         <div class="container mx-auto px-6 text-center text-gray-500">
-            <!-- NOMBRE DE LA MARCA EN EL PIE DE PÁGINA -->
             <p class="font-bold text-lg text-gray-800 mb-2">Energía <span class="accent-color">& Músculo</span></p>
-            <!-- ENLACES A REDES SOCIALES -->
-            <!-- Cambia el # por la URL real de tu perfil en cada red social -->
             <div class="mb-4">
                 <a href="#" class="mx-3 text-gray-400 hover:accent-color"><i class="fab fa-instagram fa-lg"></i></a>
                 <a href="#" class="mx-3 text-gray-400 hover:accent-color"><i class="fab fa-linkedin-in fa-lg"></i></a>
                 <a href="#" class="mx-3 text-gray-400 hover:accent-color"><i class="fab fa-youtube fa-lg"></i></a>
             </div>
-            <!-- TEXTO DE COPYRIGHT -->
             <p>&copy; 2024 MP Nutricion Deportiva. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- SCRIPT PARA EL MENÚ MÓVIL (No tocar) -->
+    <!-- SCRIPT PARA EL MENÚ MÓVIL Y LA CALCULADORA -->
     <script>
+        // --- SCRIPT DEL MENÚ MÓVIL ---
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         mobileMenuButton.addEventListener('click', () => {
@@ -467,6 +428,53 @@
                 mobileMenu.classList.add('hidden');
             });
         });
+
+        // --- SCRIPT DE LA CALCULADORA DE IMC ---
+        const imcForm = document.getElementById('imc-form');
+        const resultContainer = document.getElementById('imc-result-container');
+        const imcValueEl = document.getElementById('imc-value');
+        const imcCategoryEl = document.getElementById('imc-category');
+
+        imcForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value);
+
+            if (isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0) {
+                // Podríamos mostrar un mensaje de error más elegante, pero por ahora una alerta es suficiente.
+                alert("Por favor, introduce un peso y una altura válidos.");
+                return;
+            }
+
+            const heightInMeters = height / 100;
+            const imc = weight / (heightInMeters * heightInMeters);
+
+            imcValueEl.textContent = imc.toFixed(1);
+
+            let category = '';
+            let categoryColorClass = '';
+
+            if (imc < 18.5) {
+                category = 'Bajo Peso';
+                categoryColorClass = 'text-blue-600';
+            } else if (imc >= 18.5 && imc < 24.9) {
+                category = 'Peso Normal';
+                categoryColorClass = 'text-green-600';
+            } else if (imc >= 25 && imc < 29.9) {
+                category = 'Sobrepeso';
+                categoryColorClass = 'text-yellow-600';
+            } else {
+                category = 'Obesidad';
+                categoryColorClass = 'text-red-600';
+            }
+
+            imcCategoryEl.textContent = category;
+            imcCategoryEl.className = 'font-bold text-xl mb-4 ' + categoryColorClass; // Restablece y añade la nueva clase de color
+            
+            resultContainer.classList.remove('hidden');
+        });
+
     </script>
 </body>
 </html>
