@@ -51,6 +51,25 @@
         .imc-result-card {
             transition: all 0.3s ease-in-out;
         }
+        /* ===== ESTILOS PARA EL BOTÓN FLOTANTE DE WHATSAPP ===== */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body class="text-gray-800">
@@ -232,32 +251,36 @@
         <section id="calculadora-imc" class="py-20 bg-gray-50">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl font-bold text-center mb-12">Calculadora de IMC</h2>
-                <div class="bg-white p-8 rounded-lg shadow-lg max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                    <!-- Formulario de la calculadora -->
-                    <form id="imc-form" class="space-y-6">
-                        <div>
-                            <label for="weight" class="block text-sm font-bold mb-2 text-gray-700">Peso (en kg)</label>
-                            <input type="number" id="weight" step="0.1" class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Ej: 70.5">
-                        </div>
-                        <div>
-                            <label for="height" class="block text-sm font-bold mb-2 text-gray-700">Altura (en cm)</label>
-                            <input type="number" id="height" class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Ej: 175">
-                        </div>
-                        <button type="submit" class="w-full accent-bg text-white font-bold py-3 px-4 rounded-md accent-bg-hover transition duration-300">
-                            Calcular IMC
-                        </button>
-                    </form>
+                <div class="bg-white p-8 rounded-lg shadow-lg max-w-4xl mx-auto">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                        <!-- Formulario de la calculadora -->
+                        <form id="imc-form" class="space-y-6">
+                            <div>
+                                <label for="weight" class="block text-sm font-bold mb-2 text-gray-700">Peso (en kg)</label>
+                                <input type="number" id="weight" step="0.1" class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Ej: 70.5">
+                            </div>
+                            <div>
+                                <label for="height" class="block text-sm font-bold mb-2 text-gray-700">Altura (en cm)</label>
+                                <input type="number" id="height" class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Ej: 175">
+                            </div>
+                            <button type="submit" class="w-full accent-bg text-white font-bold py-3 px-4 rounded-md accent-bg-hover transition duration-300">
+                                Calcular IMC
+                            </button>
+                        </form>
 
-                    <!-- Área de resultados -->
-                    <div id="imc-result-container" class="text-center p-6 rounded-lg bg-gray-100 imc-result-card hidden">
-                        <p class="font-bold text-lg">Tu Índice de Masa Corporal es:</p>
-                        <p id="imc-value" class="text-5xl font-extrabold accent-color my-2"></p>
-                        <p id="imc-category" class="font-bold text-xl mb-4"></p>
-                        <div class="text-left bg-amber-100 border-l-4 border-amber-500 text-amber-700 p-4 rounded-r-lg">
-                            <p class="font-bold">¡Importante!</p>
-                            <p class="text-sm">El IMC no distingue entre masa muscular y grasa. Por sí solo, no es un criterio determinante. Para un diagnóstico certero y un plan adecuado, la valoración de un especialista es clave.</p>
+                        <!-- Área de resultados -->
+                        <div id="imc-result-container" class="text-center p-6 rounded-lg bg-gray-100 imc-result-card hidden">
+                            <p class="font-bold text-lg">Tu Índice de Masa Corporal es:</p>
+                            <p id="imc-value" class="text-5xl font-extrabold accent-color my-2"></p>
+                            <p id="imc-category" class="font-bold text-xl mb-4"></p>
+                            <div class="text-left bg-amber-100 border-l-4 border-amber-500 text-amber-700 p-4 rounded-r-lg">
+                                <p class="font-bold">¡Importante!</p>
+                                <p class="text-sm">El IMC no distingue entre masa muscular y grasa. Por sí solo, no es un criterio determinante. Para un diagnóstico certero y un plan adecuado, la valoración de un especialista es clave.</p>
+                            </div>
                         </div>
                     </div>
+                    <!-- NOTA DE REFERENCIA -->
+                    <p class="text-xs text-gray-400 text-center mt-6">Los rangos de clasificación del IMC se basan en los valores propuestos por la Organización Mundial de la Salud (OMS).</p>
                 </div>
             </div>
         </section>
@@ -360,18 +383,10 @@
             <div class="container mx-auto px-6 max-w-4xl text-center">
                 <h2 class="text-4xl font-bold mb-4">Da el primer paso hoy</h2>
                 <p class="text-gray-300 mb-8 max-w-2xl mx-auto">¿Tienes dudas o estás listo para empezar? Envíame un mensaje y te responderé lo antes posible.</p>
-                
-                <!-- ========================================================== -->
-                <!-- ====== FORMULARIO DE CONTACTO FUNCIONAL CON FORMSPREE ====== -->
-                <!-- ========================================================== -->
                 <div class="bg-white text-gray-800 text-left p-8 rounded-lg shadow-2xl max-w-2xl mx-auto">
-                    <!-- PASO 1: Ve a https://formspree.io/ y crea una cuenta gratuita. -->
-                    <!-- PASO 2: Crea un nuevo formulario y copia la URL que te dan. -->
-                    <!-- PASO 3: Pega esa URL en el atributo `action` de abajo, reemplazando la URL de ejemplo. -->
-                    <form action="https://formspree.io/f/mjkrppgj" method="POST">
+                    <form action="https://formspree.io/f/YOUR_UNIQUE_ID" method="POST">
                         <div class="mb-5">
                             <label for="name" class="block text-sm font-bold mb-2 text-gray-700">Nombre</label>
-                            <!-- El atributo `name` es importante para que Formspree sepa cómo llamar a este campo en el email. -->
                             <input type="text" id="name" name="nombre" class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Tu Nombre" required>
                         </div>
                          <div class="mb-5">
@@ -414,6 +429,14 @@
             <p>&copy; 2024 MP Nutricion Deportiva. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <!-- =================================================================== -->
+    <!-- ============== BOTÓN FLOTANTE DE WHATSAPP ========================= -->
+    <!-- =================================================================== -->
+    <a href="https://api.whatsapp.com/send/?phone=584129515503&text&type=phone_number&app_absent=0" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp" style="margin-top: 15px;"></i>
+    </a>
+
 
     <!-- SCRIPT PARA EL MENÚ MÓVIL Y LA CALCULADORA -->
     <script>
